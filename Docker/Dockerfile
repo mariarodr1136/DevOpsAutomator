@@ -12,4 +12,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app/
 
 # Define the command to run your app
-CMD ["python", "app.py"]
+CMD ["python", "deploy_pipeline.py"]
