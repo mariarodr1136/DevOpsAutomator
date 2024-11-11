@@ -15,5 +15,8 @@ spec:
       containers:
         - name: myapp
           image: mariarodr1136/myapp-image:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000
+      imagePullSecrets:
+        - name: docker-registry-secret
