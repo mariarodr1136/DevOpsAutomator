@@ -1,6 +1,6 @@
 # DevOps Automation Scripts
 
-This project demonstrates the use of automation scripts, containerization with Docker, container orchestration with Kubernetes, and infrastructure provisioning using Terraform.
+**This project demonstrates the use of automation scripts, containerization with Docker, container orchestration with Kubernetes, and infrastructure provisioning using Terraform.**
 
 ![Python](https://img.shields.io/badge/Python-3.8-blue) ![Bash](https://img.shields.io/badge/Bash-Shell-orange) ![Docker](https://img.shields.io/badge/Docker-Container-blue) ![Kubernetes](https://img.shields.io/badge/Kubernetes-Container%20Orchestration-green) ![Terraform](https://img.shields.io/badge/Terraform-Infrastructure%20as%20Code-red) ![AWS](https://img.shields.io/badge/AWS-Cloud-yellow) ![Docker Compose](https://img.shields.io/badge/Docker%20Compose-Container%20Management-lightblue)
 
@@ -49,47 +49,53 @@ This project demonstrates the use of automation scripts, containerization with D
 ## Getting Started
 
 ### 1. Clone the repository
-git clone https://github.com/mariarodr1136/DevOpsAutomator.git
-cd DevOpsAutomator
+
+    git clone https://github.com/mariarodr1136/DevOpsAutomator.git
 
 ### 2. Ensure prerequisites are met
 Before running the scripts, make sure the following tools are installed and configured on your machine:
 
 #### 2.1 Docker
 Docker is required for containerization and managing application deployment.
-- [Install Docker](https://docs.docker.com/get-docker/)
+- Install Docker
 - Verify installation:
-docker --version
+    ```bash
+    docker --version
 
 #### 2.2 Kubernetes (Minikube or kubeadm)
 Kubernetes is used for orchestrating containers in the deployment.
 - Install Minikube
 - Verify installation:
-kubectl version --client
+    ```bash
+    kubectl version --client
 
 #### 2.3 Terraform
 Terraform is used for provisioning infrastructure on cloud platforms.
 - Install Terraform
 - Verify installation:
-terraform --version
+    ```bash
+    terraform --version
 
 #### 2.4 AWS CLI (Optional, for AWS infrastructure)
 If using AWS as the provider for Terraform, configure the AWS CLI.
 - Install AWS CLI
 - Configure AWS CLI:
-aws configure
+    ```bash
+    aws configure
 
 #### 2.5 Python (for Python automation scripts)
 If using Python automation scripts, make sure Python 3 is installed.
 - Install Python
 - Verify installation:
-python3 --version
+    ```bash
+    python3 --version
 
 #### 2.6 Docker Compose
 Docker Compose is used to manage multi-container Docker applications.
 - Install Docker Compose
 - Verify installation:
-docker-compose --version
+    ```bash
+    docker-compose --version
 
 ---
 
@@ -97,37 +103,54 @@ docker-compose --version
 
 #### 3.1 Build Docker images
 To build the Docker image, navigate to the Docker directory and use the docker-compose command:
-docker-compose build
+
+    docker-compose build
 
 #### 3.2 Configure Kubernetes
 Ensure that your Kubernetes cluster is up and running. You can use Minikube or a managed Kubernetes service like GKE or EKS.
 
 For Minikube:
-minikube start
-kubectl config use-context minikube
+
+    minikube start
+    
+Configure:
+
+    kubectl config use-context minikube
 
 #### 3.3 Initialize Terraform
-If you're provisioning infrastructure on AWS or another cloud provider, navigate to the Terraform directory and initialize Terraform:
-cd Terraform
-terraform init
+If you're provisioning infrastructure on AWS or another cloud provider, navigate to the Terraform directory:
+
+    cd Terraform
+    
+Initialize Terraform:
+
+    terraform init
 
 #### 3.4 Run the Automation Script
 To deploy your application and provision the infrastructure, you can either use the Python or Bash script.
 
-- Using Python:
-python3 Scripts/deploy_pipeline.py
+Using Python:
 
-- Using Bash:
-bash Scripts/provision_infrastructure.sh
+
+    python3 Scripts/deploy_pipeline.py
+
+Using Bash:
+
+
+    bash Scripts/provision_infrastructure.sh
 
 #### 3.5 Access Your Application
 Once the deployment is complete, you can access your application depending on how the Kubernetes services are configured:
 
-- If you're using a LoadBalancer type service, check the external IP:
-kubectl get services
+If you're using a LoadBalancer type service, check the external IP:
 
-- If you're using Minikube, you can access the application through the Minikube service URL:
-minikube service myapp-service --url
+    kubectl get services
+
+If you're using Minikube, you can access the application through the Minikube service URL:
+
+    minikube service myapp-service --url
+
+---
 
 ## Notes
 
@@ -139,15 +162,15 @@ minikube service myapp-service --url
 
 ## Troubleshooting
 
-- Docker errors: If you encounter issues with Docker, ensure that Docker is running and properly configured. 
+- **Docker errors**: If you encounter issues with Docker, ensure that Docker is running and properly configured. 
   - Check Docker logs for more details:
 docker logs <container_id>
 
-- Kubernetes errors: Check the status of Kubernetes pods and services with:
+- **Kubernetes errors**: Check the status of Kubernetes pods and services with:
 kubectl get pods
 kubectl get services
 
-- Terraform errors: Terraform errors can often be related to missing provider credentials or syntax issues in the .tf files. Ensure your credentials are configured correctly and try re-running the Terraform commands.
+- **Terraform errors**: Terraform errors can often be related to missing provider credentials or syntax issues in the .tf files. Ensure your credentials are configured correctly and try re-running the Terraform commands.
 
 ---
 
